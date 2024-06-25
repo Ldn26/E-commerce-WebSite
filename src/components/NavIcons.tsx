@@ -42,16 +42,20 @@ if(!IsLogin){
         height={22}
         width={22}
       />
-      <div className='relative  cursor-pointer'>
+      <div
+        className="relative  cursor-pointer"
+        onClick={() => SetIsCartOpen((prv) => !prv)}
+      >
         <Image
           src="/cart.png"
           alt="cart"
           className="cursor-pointer"
           height={22}
           width={22}
-          onClick={() => SetIsCartOpen((prv) => !prv)}
         />
-        <div className='absolute -top-4 w-6 h-6  bg-lama rounded-full text-white items-center flex  justify-center'>2</div>
+        <div className="absolute -top-4 w-6 h-6  bg-lama rounded-full text-white items-center flex  justify-center">
+          2
+        </div>
         {isCartOpen && <CartModel />}
       </div>
     </div>
