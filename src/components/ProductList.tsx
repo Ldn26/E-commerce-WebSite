@@ -3,6 +3,7 @@ import Link from "next/link";
 import { wixClientServer } from "../lib/WixClientServer";
 import { products } from "@wix/stores";
 import DOMPurify from "isomorphic-dompurify";
+import Pagination from "./pagination";
 const ProductList = async ({
   categoryID,
   limit,
@@ -12,15 +13,21 @@ const ProductList = async ({
   limit?: number; // optional
   searchParams?: any;
 }) => {
+  const PRODUCT_PER_PAGE = 8;
   const wixClient = await wixClientServer();
-  const ProductQuery =  wixClient.products
+  const ProductQuery = wixClient.products
     .queryProducts()
     .startsWith("name", searchParams?.name || "")
     .eq("collectionIds", categoryID)
     .hasSome("productType", [searchParams?.type || "physical", "degital"])
     .gt("priceData.price", searchParams?.min || 0)
     .lt("priceData.price", searchParams?.max || 99999)
-    .limit(limit || 20)
+    .limit(limit || PRODUCT_PER_PAGE)
+    .skip(
+      searchParams?.page
+        ? parseInt(searchParams.page) * (limit || PRODUCT_PER_PAGE)
+        : 0
+    );
 
    if(searchParams?.sort){
     const [sortType, sortBy] = searchParams?.sort.split(" ")
@@ -93,6 +100,7 @@ ProductQuery.ascending(sortBy)
           </Link>
         );
       })}
+      <Pagination currentPage={res.currentPage || 0 }  hasPrev={res.hasPrev()} hasNext= {res.hasNext()}/>
     </div>
   );
 };

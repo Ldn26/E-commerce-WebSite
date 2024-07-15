@@ -19,15 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <body className={inter.className}>
         <WixClientContextProvider>
-
-        <Navbar/>
-        {children}
-        <Footer/>
+          <Navbar />
+          {children}
+          <Footer />
         </WixClientContextProvider>
-          </body>
+      </body>
     </html>
   );
 }

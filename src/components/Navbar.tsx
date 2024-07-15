@@ -2,14 +2,19 @@ import Link from "next/link"
 import Menu from "./Menu"
 import Image from "next/image";
 import SearchBar from "./SearchBar";
-import NavIcons from "./NavIcons";
+import dynamic from "next/dynamic";
+
+const NavIcons = dynamic(()=>import("./NavIcons"),{ssr : false})
 function Navbar() {
+
+
+
   return (
     <div className="h-20  px-4 md:px-8 lg:px-16 xl:px:32 2xl:px-64 relative ">
       {/* mobile screen */}
       <div className="flex h-full justify-between md:hidden items-center">
         <Link href={"/"}>
-          <div className="font-semibold tracking-wide text-2xl"> LAMA </div>
+          <div className="font-semibold tracking-wide text-2xl"> Shopy</div>
         </Link>
         <Menu />
       </div>
@@ -21,7 +26,7 @@ function Navbar() {
             <Image src="/logo.png" alt="logo" width={24} height={24} />
             <div className="font-semibold mx-4 tracking-wide text-2xl">
               {" "}
-              LAMA{" "}
+              Shopy{" "}
             </div>
           </Link>
           <div className="xl:flex gap-4 items-center hidden">
@@ -30,7 +35,6 @@ function Navbar() {
             <Link href={"/"}>Contact </Link>
             <Link href={"/"}>Shop </Link>
             <Link href={"/"}>Deals</Link>
-      
           </div>
         </div>
         {/* right */}

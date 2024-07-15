@@ -10,7 +10,7 @@ function Footer() {
         {/* left */}
         <div className=" md:w-1/2 lg:w-1/4 w-full  flex flex-col gap-8 ">
           <Link href={"/"}></Link>
-          <div className="font-semibold tracking-wide text-2xl"> LAMA </div>
+          <div className="font-semibold tracking-wide text-2xl"> Shopy </div>
           <p>Pole Urbain Medea ,Algeria</p>
 
           <span className="font-semibold">yousseflaidani6@gmail.com</span>

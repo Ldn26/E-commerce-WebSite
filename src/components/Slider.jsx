@@ -53,10 +53,10 @@ function Slider() {
               {/* Text Container */}
               <div className="h-1/2 xl:h-full xl:w-1/2 flex items-center flex-col gap-8 justify-center 2xl:gap-12 text-center">
                 <h2 className="text-xl lg:text-3xl 2xl:text-5xl">
-                  {slide.description}
+                  {/* {slide.description} */}
                 </h2>
-                <h1 className="text-5xl  lg:text-6xl  2xl:text-8xl font-semibold">
-                  {slide.title}
+                <h1 className="text-2xl  lg:text-6xl  2xl:text-8xl font-semibold">
+                  {/* {slide.title} */}Spring Sale <br /> Collections
                 </h1>
                 <Link href={slide.url}>
                   <button className="rounded-md bg-black text-white py-3 px-4">
