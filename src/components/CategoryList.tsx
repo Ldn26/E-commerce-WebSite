@@ -5,7 +5,7 @@ import React from 'react'
 async function   CategoryList() {
   const wixClient = await wixClientServer();
   const categories = await wixClient.collections.queryCollections().find();
- 
+
   return (
     <div className="px-4 overflow-x-scroll scrollbar-hide ">
       <div className="flex gap-4  md:gap-8 ">

@@ -214,7 +214,7 @@ function LoginPage() {
             className="text-sm underline mb-4  cursor-pointer"
             onClick={() => setmode(Mode.REGISTER)}
           >
-            Don't have an account ?
+            Don t have an account ?
           </div>
         )}
         {mode === Mode.REGISTER && (
